@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdessabour sebbar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: white; /* Make all text white by default */
+        }
+    
+        .header {
+            background-color: #ffffff;
+            color: rgb(0, 0, 0); /* Header-specific color */
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: rgb(0, 0, 0); /* Change header text to white */
+        }
+    
+        .container {
+            padding: 20px;
+        }
+    
+        .description {
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: white; /* Make the description text white */
+            font-weight: bold; /* Bold text */
+        }
+    
+        .accordion {
+            border: 1px solid #ffffff; /* White border for contrast */
+            border-radius: 5px;
+            margin-bottom: 10px;
+            background-color: transparent; /* Transparent background */
+            overflow: hidden;
+        }
+    
+        .accordion button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            outline: none;
+            background: transparent; /* Transparent button background */
+            font-size: 16px;
+            color: white; /* White button text */
+            font-weight: bold; /* Bold text */
+            cursor: pointer;
+            text-align: left;
+            transition: background-color 0.3s;
+        }
+    
+        .accordion button:hover {
+            background-color: rgba(255, 255, 255, 0.1); /* Light transparent hover effect */
+        }
+    
+        .accordion button:after {
+            content: '+';
+            float: right;
+            color: white; /* White plus sign */
+        }
+    
+        .accordion button.active:after {
+            content: '-';
+            color: white; /* White minus sign */
+        }
+    
+        .panel {
+            display: none;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent panel background */
+            border-top: 1px solid #ffffff; /* White top border */
+            color: white; /* White text */
+            font-weight: bold; /* Bold text */
+        }
+    
+        /* Highlight colors for specific text in the panels */
+        .highlight {
+            color: red;
+            font-weight: bold;
+        }
+    
+        /* Background Animation Styles */
+        @keyframes move-background {
+            from {
+                transform: translate3d(0px, 0px, 0px);
+            }
+            to {
+                transform: translate3d(1000px, 0px, 0px);
+            }
+        }
+    
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: -1;
+        }
+    
+        .stars {
+            background: black url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 0;
+        }
+    
+        .twinkling {
+            width: 10000px;
+            height: 100%;
+            background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png") repeat;
+            background-size: 1000px 1000px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: 2;
+            animation: move-background 70s linear infinite;
+        }
+    
+        .clouds {
+            width: 10000px;
+            height: 100%;
+            background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds_repeat.png") repeat;
+            background-size: 1000px 1000px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: 3;
+            animation: move-background 150s linear infinite;
+        }
+
+        .header {
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 20px;
+        background-color: #f8f8f8; /* Optional: Add a background color */
+        }
+
+        .header-content {
+        display: flex;
+         align-items: center;
+        justify-content: space-between;
+        gap:20px
+        }
+
+        .logo.right-logo{
+            max-width: 130px;
+            height: auto;
+        }
+        
+
+        
+    </style>
+</head>
+<body>
+    <div class="background-container">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/moon2.png" alt="">
+        <div class="stars"></div>
+        <div class="twinkling"></div>
+        <div class="clouds"></div>
+    </div>
+    <div class="header">
+        <div class="header-content">
+            <div>
+                <img src="./assets/img/CHU.png" alt="Logo CHU" class="logo left-logo">
+            </div>
+            <div class="header-text">
+            CENTRE HOSPITALIER UNIVERSITAIRE <br>
+            MOHAMMED VI OUJDA <br>
+            SERVICE DE TRAUMATOLOGIE-ORTHOPEDIE B
+          </div>
+          <div>         
+             <img src="./assets/img/Service.png" alt="Logo Service" class="logo right-logo">
+          </div>
+        </div>
+      </div>
+      
+        
+        <div class="container">
+        <div style="color: white; text-decoration-line: underline;
+  text-decoration-color: white; text-align: center;margin-bottom: 3%;font-weight: bold; font-size:larger ;">TABLEAU DE PRESCRIPTION DES MEDICAMENTS</div>
+        <div class="description" style="margin-bottom: 2%;">
+            Ce site vous présente le tableau de prescription des médicaments suggérés pour cette semaine. Veuillez respecter scrupuleusement les indications du tableau pour assurer une prise en charge optimale des patients, qu'ils soient sortants, hospitalisés ou vus en consultation.
+        
+            <br>
+            <br> À noter que le tableau sera automatiquement mis à jour à la fin de chaque semaine pour refléter les nouvelles prescriptions en vigueur.
+        </div>
+
+        <div class="accordion">
+            <button onclick="togglePanel(this)">ANTICOAGULANTS</button>
+            <div class="panel" id="panel-diagnostic">
+                <b><div style ="color: white; text-decoration-line: underline;
+  text-decoration-color: white;"> N'importe quelle HBPM</div> </b>
+                <br> <div style ="color: red"> Posologie : 1 inj/jour </div> 
+                <br> <div style ="color: blue"> CI et Infos : </div> 
+                <br> 
+                <br>  <b><div style ="color: white;text-decoration-line: underline;
+  text-decoration-color: white;">  Rexaban 10mg cp  </div> </b>  
+                <br>  <div style ="color: red"> Posologie : 1cp/jour </div> 
+                <br>  <div style ="color: blue"> CI et Infos : Indiqué dans les chirurgies orthopediques (PTH/PIH pdt 35 jours; PTG pdt 15 jours) Ne pas associer avec : double anti agrégation plaquettaire (aspirine et clopidogrel) ;
+                rifampicine ; phenobarbital ; carbamazepine ;
+                antifongiques azolés ; les antiviraux </div> 
+
+            </div>
+        </div>
+
+        <div class="accordion">
+            <button onclick="togglePanel(this)">ANTI-INFLAMATOIRE NON STEROIDIENS</button>
+            <div class="panel" id="panel-differential">
+                <b><div style ="color: white;text-decoration-line: underline;
+  text-decoration-color: white;">  Celebrex 100 mg cp  </div> </b> 
+                <br> <div style ="color: red">  Posologie : 1cp*2/jour  </div> 
+                <br> 
+                <br> <b><div style ="color: white;text-decoration-line: underline;
+  text-decoration-color: white;">  Di-indo 25mg  </div> </b> 
+                <br> <div style ="color: red">  Posologie : 1cp*3/jour  </div> 
+            </div>
+        </div>
+
+        <div class="accordion">
+            <button onclick="togglePanel(this)">ANTALGIQUES</button>
+            <div class="panel" id="panel-complications">
+                <b><div style ="color: white;text-decoration-line: underline;
+  text-decoration-color: white;">  Dolostop 1g cp  </div> </b> 
+                <br>  <div style ="color: red">  Posologie : 1cp*3/jour  </div>  
+                <br> <b><div style ="color: white;text-decoration-line: underline;
+  text-decoration-color: white;">  Myorelaxant Acethio cp  </div> </b> 
+                <br>  <div style ="color: red">   Posologie : 1cp*3/jour pdt 7 jours maximum  </div> 
+                <br> <b><div style ="color: white;text-decoration-line: underline;
+  text-decoration-color: white;">  Tramadol 50mg cp  </div> </b> 
+                <br>  <div style ="color: red">  Posologie : 1cp*2/jour  </div>  
+                <br> <b><div style ="color: white;text-decoration-line: underline;
+  text-decoration-color: white;">  Coparantal cp  </div> </b> 
+                <br>  <div style ="color: red">  Posologie : 1 cp* 3/jour  </div>  
+                <br> <b><div style ="color: white;text-decoration-line: underline;
+  text-decoration-color: white;"> Pregabaline : Lyrica 75mg  </div> </b> 
+                <br>  <div style ="color: blue">  CI et infos : Nécessitant adaptation en cas d'insuffisance rénale  </div>  
+
+            </div>
+        </div>
+
+        <div class="accordion">
+            <button onclick="togglePanel(this)">ANTIBIOTIQUES</button>
+            <div class="panel" id="panel-etiologies">
+                <b><div style ="color: white;text-decoration-line: underline;
+  text-decoration-color: white;">  Ciprofloxacine : Aflox 500mg cp  </div> </b> 
+                <br>  <div style ="color: red">  Posologie : 1cp*3/jour  </div>  
+                <br> <b><div style ="color: white;text-decoration-line: underline;
+  text-decoration-color: white;">  Amoxicilline protégée : Levamox 1g comprimé  </div> </b> 
+                <br>  <div style ="color: red">  Posologie : 1 cp*3/jour  </div>  
+
+            </div>
+        </div>
+
+        <div class="accordion">
+            <button onclick="togglePanel(this)">IPP</button>
+            <div class="panel" id="panel-therapeutic">
+                <b><div style ="color: white;text-decoration-line: underline;
+  text-decoration-color: white;">  IXOR 20mg cp eff  </div> </b>  
+                <br> <div style ="color: red">  Posologie : 1 cp/jour le matin 30 minutes avant repas  </div>  
+
+            </div>
+        </div>
+
+        <div class="accordion">
+            <button onclick="togglePanel(this)">CREME CICATRISANTES</button>
+            <div class="panel" id="panel-etiologies">
+                <b><div style ="color: white;text-decoration-line: underline;
+  text-decoration-color: white;">  Cicaderma crème  </div> </b> 
+                <br> <div style ="color: red">  Posologie : 1 application/ jour après ablation des fils  </div>  
+
+            </div>
+
+        </div>
+        <div class="accordion">
+            <button onclick="togglePanel(this)">GEL ANTI-DOULOUREUX</button>
+            <div class="panel" id="panel-etiologies">
+                <b><div style ="color: white;text-decoration-line: underline;
+  text-decoration-color: white;">  FLEXANAT pommade  </div> </b> 
+                <br> <div style ="color: red">  Posologie : 1 application*2/jour  </div>  
+            </div>
+        </div>
+        <div class="accordion">
+            <button onclick="togglePanel(this)">ANTI-Arthrosiques</button>
+            <div class="panel" id="panel-etiologies">
+                <b><div style ="color: white;text-decoration-line: underline;
+  text-decoration-color: white;">  FLEXAJONT sachets :  </div> </b> 
+                <br> <div style ="color: red">  Posologie : 1 sachet /jour pdt 3 mois avec fenêtre thérapeutique de 1 mois  </div>  
+
+            </div>
+        </div>
+        <div class="accordion">
+            <button onclick="togglePanel(this)">FER</button>
+            <div class="panel" id="panel-etiologies">
+                <b><div style ="color: white;text-decoration-line: underline;
+  text-decoration-color: white;">  BIOMARTIAL plus gélule  </div> </b> 
+                <br> <div style ="color: red">  Posologie : 1 gélule / jour le soir  </div>  
+
+            </div>
+        </div>
+        <div class="accordion">
+            <button onclick="togglePanel(this)">THERAPIES FROIDE</button>
+            <div class="panel" id="panel-etiologies">
+                <b><div style ="color: white;text-decoration-line: underline;
+  text-decoration-color: white;">  FLEXANAT NITRON  </div> </b> 
+                <br> <div style ="color: red">  Posologie : 1 gel/jour le soir  </div>  
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function togglePanel(button) {
+            const panel = button.nextElementSibling;
+            const isActive = panel.style.display === 'block';
+
+            document.querySelectorAll('.panel').forEach(p => p.style.display = 'none');
+            document.querySelectorAll('.accordion button').forEach(b => b.classList.remove('active'));
+
+            if (!isActive) {
+                panel.style.display = 'block';
+                button.classList.add('active');
+            }
+        }
+    </script>
+    
+</body>
+</html>
+
