@@ -33,10 +33,18 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.line {
+    padding: 20px;
+    max-width: auto;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
 .title {
     color: #333;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 35px;
     font-weight: bold;
     font-size: 24px;
 }
@@ -86,7 +94,7 @@ body {
     border: 0;
     height: 2px;
     background: linear-gradient(90deg, #007bff, #00bfff, #007bff);
-    margin: 20px auto;
+    margin: auto;
     width: auto;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
